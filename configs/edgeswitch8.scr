@@ -1,0 +1,94 @@
+!Current Configuration:
+!
+!System Description "EdgeSwitch 8-Port 150W, 1.7.3.5050176, Linux 3.6.5-f4a26ed5, 1.0.0.4827685"
+!System Software Version "1.7.3.5050176"
+!System Up Time          "0 days 0 hrs 26 mins 4 secs"
+!Additional Packages     QOS,IPv6 Management,Routing
+!Current SNTP Synchronized Time: SNTP Last Attempt Status Is Not Successful
+!
+network protocol none
+network parms 192.168.4.9 255.255.255.0 192.168.4.1
+vlan database
+vlan 1000
+vlan name 1000 "management"
+exit
+network mgmt_vlan 1000
+no ip telnet server enable
+configure
+username "hy435" password 29c28c265dd5cf4fb933fdc00fb0752fba7f8d1b5a91d5b4e73e689273f43f2b5db2d1f95d7c987514ae70084fcd20a531a3bacb11bc77f276a486ba854b7404 level 15 encrypted
+no username "ubnt"
+line console
+exit
+line telnet
+exit
+line ssh
+exit
+!
+interface 0/1
+bandwidth 100000
+vlan pvid 1000
+vlan participation exclude 1
+vlan participation include 1000
+vlan tagging 1000
+ip mtu 1500
+exit
+interface 0/2
+switchport mode trunk
+switchport trunk allowed vlan 1-999,1001-4093
+vlan participation exclude 1000
+exit
+interface 0/3
+switchport mode trunk
+switchport trunk allowed vlan 1-999,1001-4093
+vlan participation exclude 1000
+exit
+interface 0/4
+switchport mode trunk
+switchport trunk allowed vlan 1-999,1001-4093
+vlan participation exclude 1000
+exit
+interface 0/5
+switchport mode trunk
+switchport trunk allowed vlan 1-999,1001-4093
+vlan participation exclude 1000
+exit
+interface 0/6
+switchport mode trunk
+switchport trunk allowed vlan 1-999,1001-4093
+vlan participation exclude 1000
+exit
+interface 0/7
+switchport mode trunk
+switchport trunk allowed vlan 1-999,1001-4093
+vlan participation exclude 1000
+exit
+interface 0/8
+switchport mode trunk
+switchport trunk allowed vlan 1-999,1001-4093
+vlan participation exclude 1000
+exit
+interface 0/9
+vlan participation exclude 1000
+exit
+interface 0/10
+vlan participation exclude 1000
+exit
+interface lag 1
+vlan participation exclude 1000
+exit
+interface lag 2
+vlan participation exclude 1000
+exit
+interface lag 3
+vlan participation exclude 1000
+exit
+interface lag 4
+vlan participation exclude 1000
+exit
+interface lag 5
+vlan participation exclude 1000
+exit
+interface lag 6
+vlan participation exclude 1000
+exit
+exit
